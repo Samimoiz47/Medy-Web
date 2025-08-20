@@ -1,0 +1,309 @@
+/* AI Video Chat Neon Lightning Border Theme */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  --neon-blue: #00f5ff;
+  --neon-pink: #ff0080;
+  --neon-purple: #7b68ee;
+  --neon-green: #39ff14;
+  --neon-yellow: #ffff00;
+  --dark-bg: #0a0a0f;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --electric-cyan: #00ffff;
+  --electric-magenta: #ff00ff;
+  --electric-blue: #0080ff;
+}
+
+/* Global Styles */
+body {
+  font-family: 'Orbitron', monospace;
+  background: var(--dark-bg);
+  color: #ffffff;
+  overflow: hidden;
+  height: 100vh;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 20%, rgba(123, 104, 238, 0.1) 0%, transparent 50%);
+}
+
+/* Lightning Border Animation */
+@keyframes lightning-border {
+  0% {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 5px var(--neon-blue), inset 0 0 5px var(--neon-blue);
+  }
+  25% {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink), inset 0 0 15px var(--neon-pink);
+  }
+  50% {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 25px var(--neon-purple), inset 0 0 25px var(--neon-purple);
+  }
+  75% {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green), inset 0 0 15px var(--neon-green);
+  }
+  100% {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 5px var(--neon-blue), inset 0 0 5px var(--neon-blue);
+  }
+}
+
+@keyframes electric-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Chat Container with Neon Lightning Border */
+.chat-container {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  background: var(--dark-bg);
+  border: 3px solid transparent;
+  animation: lightning-border 4s linear infinite;
+  overflow: hidden;
+}
+
+.chat-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(0, 245, 255, 0.1) 50%, 
+    transparent 70%);
+  animation: electric-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Video Section with Neon Frame */
+.video-section {
+  flex: 2;
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(0, 245, 255, 0.1), 
+    rgba(255, 0, 128, 0.1), 
+    rgba(123, 104, 238, 0.1));
+  border-right: 2px solid;
+  border-image: linear-gradient(to bottom, 
+    var(--neon-blue), 
+    var(--neon-pink), 
+    var(--neon-purple)) 1;
+  animation: lightning-border 3s linear infinite;
+}
+
+/* AI Avatar with Neon Glow */
+.ai-avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.avatar-face {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    var(--neon-blue), 
+    var(--neon-pink), 
+    var(--neon-purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  animation: electric-pulse 2s ease-in-out infinite;
+  box-shadow: 
+    0 0 30px var(--neon-blue),
+    0 0 60px var(--neon-pink),
+    0 0 90px var(--neon-purple);
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-face::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Chat Section with Glass Morphism */
+.chat-section {
+  flex: 1;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-left: 2px solid;
+  border-image: linear-gradient(to bottom, 
+    var(--neon-green), 
+    var(--neon-yellow), 
+    var(--neon-blue)) 1;
+  animation: lightning-border 3.5s linear infinite;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Messages Container with Neon Scrollbar */
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-blue) transparent;
+}
+
+.messages-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--neon-blue), var(--neon-pink));
+  border-radius: 4px;
+}
+
+/* Message Styles with Neon Borders */
+.message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+  border: 1px solid transparent;
+  animation: lightning-border 5s linear infinite;
+}
+
+.message.user {
+  background: linear-gradient(135deg, 
+    rgba(0, 245, 255, 0.2), 
+    rgba(0, 153, 204, 0.2));
+  margin-left: auto;
+  text-align: right;
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+}
+
+.message.ai {
+  background: linear-gradient(135deg, 
+    rgba(255, 0, 128, 0.2), 
+    rgba(255, 20, 147, 0.2));
+  margin-right: auto;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+}
+
+/* Input Container with Neon Focus */
+.input-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.message-input {
+  flex: 1;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid;
+  border-image: linear-gradient(45deg, 
+    var(--neon-blue), 
+    var(--neon-pink), 
+    var(--neon-purple)) 1;
+  border-radius: 25px;
+  color: white;
+  font-family: 'Orbitron', monospace;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.message-input:focus {
+  box-shadow: 
+    0 0 20px var(--neon-blue),
+    inset 0 0 20px rgba(0, 245, 255, 0.1);
+  border-image: linear-gradient(45deg, 
+    var(--neon-green), 
+    var(--neon-yellow), 
+    var(--neon-blue)) 1;
+}
+
+/* Button Styles with Lightning Effects */
+.send-btn, .mic-btn, .video-btn {
+  position: relative;
+  padding: 1rem;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    var(--neon-blue), 
+    var(--neon-purple));
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+}
+
+.send-btn:hover, .mic-btn:hover, .video-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chat-container {
+    flex-direction: column;
+  }
+  
+  .video-section {
+    flex: 1;
+    border-right: none;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, 
+      var(--neon-blue), 
+      var(--neon-pink), 
+      var(--neon-purple)) 1;
+  }
+  
+  .chat-section {
+    flex: 1;
+    border-left: none;
+    border-top: 2px solid;
+    border-image: linear-gradient(to right, 
+      var(--neon-green), 
+      var(--neon-yellow), 
+      var(--neon-blue)) 1;
+  }
+}

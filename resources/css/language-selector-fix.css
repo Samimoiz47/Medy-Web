@@ -1,0 +1,47 @@
+/* Language Selector Fix - Make it clickable */
+.language-selector {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #00f5ff, #ff0080) 1;
+  animation: lightning-border 3s linear infinite;
+  z-index: 1000;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.language-selector select {
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: 'Orbitron', monospace;
+  outline: none;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 1001;
+}
+
+.language-selector select option {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  cursor: pointer;
+}
+
+/* Ensure language selector is always clickable */
+#languageSelect {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 1002 !important;
+}
+
+/* Fix for any overlay issues */
+.language-selector,
+#languageSelect {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 1000 !important;
+}

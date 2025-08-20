@@ -1,0 +1,227 @@
+/* Hyper-Realistic 3D Game Store Theme - AI-Assisted Design */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+
+:root {
+  /* AI-Generated Color Palette */
+  --primary-neon: #00f5ff;
+  --secondary-cyber: #ff0080;
+  --accent-hologram: #7b68ee;
+  --dark-space: #0a0a0f;
+  --glass-overlay: rgba(255, 255, 255, 0.1);
+  --glow-intensity: 0 0 20px;
+  
+  /* 3D Transform Variables */
+  --perspective: 1000px;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --translate-z: 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background: var(--dark-space);
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(123, 104, 238, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  perspective: var(--perspective);
+}
+
+/* AI-Generated Particle Background */
+.particle-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    linear-gradient(45deg, transparent 49%, var(--primary-neon) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, var(--secondary-cyber) 50%, transparent 51%);
+  background-size: 30px 30px;
+  animation: particle-float 20s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-1000px) rotate(360deg); }
+}
+
+/* 3D Glass Morphism Navigation */
+.navbar-3d {
+  background: var(--glass-overlay);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transform: translateZ(50px);
+  box-shadow: 
+    0 8px 32px rgba(0, 245, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.nav-brand {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, var(--primary-neon), var(--secondary-cyber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-intensity) var(--primary-neon);
+}
+
+/* 3D Game Grid Container */
+.game-grid-3d {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  transform-style: preserve-3d;
+}
+
+/* Hyper-Realistic 3D Game Cards */
+.game-card-3d {
+  background: var(--glass-overlay);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.game-card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game-card-3d:hover::before {
+  opacity: 1;
+}
+
+.game-card-3d:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 
+    0 20px 40px rgba(0, 245, 255, 0.2),
+    0 0 60px rgba(255, 0, 128, 0.1);
+}
+
+/* 3D Game Image Container */
+.game-image-3d {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  transform-style: preserve-3d;
+}
+
+.game-image-3d img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.game-card-3d:hover .game-image-3d img {
+  transform: scale(1.1) rotateY(5deg);
+}
+
+/* AI-Generated Holographic Overlay */
+.holographic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 245, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: holographic-scan 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes holographic-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* 3D Typography */
+.game-title-3d {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--primary-neon), var(--secondary-cyber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-intensity) var(--primary-neon);
+}
+
+.game-description-3d {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* 3D Price Tag */
+.price-tag-3d {
+The current game-store.blade.php file contains a modern design with gradients, floating particles, parallax header, and a grid layout for game cards. The CSS is embedded in the file and uses subtle animations and blur effects.
+
+Plan to change the theme to hyper-realistic 3D, AI-assisted design:
+
+Information Gathered:
+- The current page uses embedded CSS with gradients, animations, and grid layout.
+- The page has floating particles, parallax header, navigation, and game cards with hover effects.
+- The CSS is mostly in the <style> tag inside the blade file.
+
+Plan:
+- Extract the CSS into a dedicated CSS file for better management.
+- Replace the current CSS with a new hyper-realistic 3D theme using advanced CSS 3D transforms, lighting, and shadows.
+- Add AI-assisted design elements such as dynamic lighting effects, holographic glows, and interactive 3D card animations.
+- Enhance the floating particles to be more 3D and interactive.
+- Update the HTML structure if needed to support 3D effects.
+- Keep the existing content structure but enhance the visual style drastically.
+
+Dependent Files to be edited:
+- resources/views/game-store.blade.php (update HTML and link new CSS)
+- resources/css/game-store-3d.css (new CSS file with hyper-realistic 3D theme)
+
+Followup steps:
+- Create the new CSS file with the 3D theme.
+- Update the blade file to link the new CSS and adjust HTML if needed.
+- Test the page rendering and animations.
+- Optimize performance and responsiveness.
+
+Please confirm if I can proceed with this plan or if you want any modifications before I start editing. 
+
+<ask_followup_question>
+<question>Can I proceed with creating a new hyper-realistic 3D theme CSS file and updating the game-store.blade.php accordingly?</question>
+</ask_followup_question>

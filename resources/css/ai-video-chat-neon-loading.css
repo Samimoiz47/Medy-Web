@@ -1,0 +1,244 @@
+/* Modern Neon Loading Animation */
+.neon-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.neon-loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.neon-loader-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.neon-circuit-ring {
+    position: absolute;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    animation: circuit-pulse 2s ease-in-out infinite;
+}
+
+.neon-circuit-ring:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    border-top-color: #00f5ff;
+    animation-delay: 0s;
+}
+
+.neon-circuit-ring:nth-child(2) {
+    width: 85%;
+    height: 85%;
+    border-right-color: #ff0080;
+    animation-delay: 0.2s;
+    top: 7.5%;
+    left: 7.5%;
+}
+
+.neon-circuit-ring:nth-child(3) {
+    width: 70%;
+    height: 70%;
+    border-bottom-color: #7b68ee;
+    animation-delay: 0.4s;
+    top: 15%;
+    left: 15%;
+}
+
+.neon-circuit-ring:nth-child(4) {
+    width: 55%;
+    height: 55%;
+    border-left-color: #39ff14;
+    animation-delay: 0.6s;
+    top: 22.5%;
+    left: 22.5%;
+}
+
+.neon-ai-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #00f5ff, #ff0080, #7b68ee);
+    border-radius: 50%;
+    animation: core-spin 3s linear infinite, core-glow 2s ease-in-out infinite;
+    box-shadow: 
+        0 0 20px #00f5ff,
+        0 0 40px #ff0080,
+        0 0 60px #7b68ee;
+}
+
+.neon-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.neon-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00f5ff;
+    border-radius: 50%;
+    animation: particle-float 3s ease-in-out infinite;
+}
+
+.neon-particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; background: #00f5ff; }
+.neon-particle:nth-child(2) { top: 30%; right: 25%; animation-delay: 0.5s; background: #ff0080; }
+.neon-particle:nth-child(3) { bottom: 30%; left: 30%; animation-delay: 1s; background: #7b68ee; }
+.neon-particle:nth-child(4) { bottom: 20%; right: 20%; animation-delay: 1.5s; background: #39ff14; }
+
+.neon-loading-text {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00f5ff;
+    text-align: center;
+    animation: text-flicker 2s ease-in-out infinite;
+}
+
+.neon-loading-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), transparent);
+    animation: text-scan 3s linear infinite;
+}
+
+.neon-progress-bar {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.neon-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00f5ff, #ff0080, #7b68ee);
+    width: 0%;
+    animation: progress-fill 4s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.7);
+}
+
+@keyframes circuit-pulse {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes core-spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes core-glow {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px #00f5ff,
+            0 0 40px #ff0080,
+            0 0 60px #7b68ee;
+    }
+    50% {
+        box-shadow: 
+            0 0 30px #00f5ff,
+            0 0 60px #ff0080,
+            0 0 90px #7b68ee;
+    }
+}
+
+@keyframes particle-float {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes text-flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #00f5ff;
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: 0 0 15px #00f5ff, 0 0 25px #ff0080;
+    }
+}
+
+@keyframes text-scan {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes progress-fill {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .neon-loader-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .neon-loading-text {
+        font-size: 1rem;
+        bottom: -50px;
+    }
+    
+    .neon-progress-bar {
+        width: 150px;
+        bottom: -80px;
+    }
+}

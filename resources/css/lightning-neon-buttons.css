@@ -1,0 +1,243 @@
+/* Lightning Neon Border Effects for Game Store & Welcome Page */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  --neon-blue: #00f5ff;
+  --neon-pink: #ff0080;
+  --neon-purple: #7b68ee;
+  --neon-green: #39ff14;
+  --dark-bg: #0a0a0f;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* Lightning Neon Button Base */
+.lightning-neon-btn {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Blue Lightning Neon */
+.lightning-neon-blue {
+  background: linear-gradient(135deg, var(--neon-blue), #0099cc);
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+.lightning-neon-blue::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-blue), transparent, var(--neon-blue));
+  border-radius: 50px;
+  z-index: -1;
+  animation: lightning-border 2s linear infinite;
+}
+
+.lightning-neon-blue::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, transparent, var(--neon-blue), transparent);
+  border-radius: 50px;
+  z-index: -2;
+  animation: lightning-border 2s linear infinite reverse;
+}
+
+/* Pink Lightning Neon */
+.lightning-neon-pink {
+  background: linear-gradient(135deg, var(--neon-pink), #ff0066);
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+}
+
+.lightning-neon-pink::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-pink), transparent, var(--neon-pink));
+  border-radius: 50px;
+  z-index: -1;
+  animation: lightning-border 2s linear infinite;
+}
+
+.lightning-neon-pink::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, transparent, var(--neon-pink), transparent);
+  border-radius: 50px;
+  z-index: -2;
+  animation: lightning-border 2s linear infinite reverse;
+}
+
+/* Purple Lightning Neon */
+.lightning-neon-purple {
+  background: linear-gradient(135deg, var(--neon-purple), #6a0dad);
+  color: white;
+  box-shadow: 0 0 20px rgba(123, 104, 238, 0.3);
+}
+
+.lightning-neon-purple::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-purple), transparent, var(--neon-purple));
+  border-radius: 50px;
+  z-index: -1;
+  animation: lightning-border 2s linear infinite;
+}
+
+.lightning-neon-purple::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, transparent, var(--neon-purple), transparent);
+  border-radius: 50px;
+  z-index: -2;
+  animation: lightning-border 2s linear infinite reverse;
+}
+
+/* Green Lightning Neon */
+.lightning-neon-green {
+  background: linear-gradient(135deg, var(--neon-green), #00cc00);
+  color: white;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+.lightning-neon-green::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-green), transparent, var(--neon-green));
+  border-radius: 50px;
+  z-index: -1;
+  animation: lightning-border 2s linear infinite;
+}
+
+.lightning-neon-green::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, transparent, var(--neon-green), transparent);
+  border-radius: 50px;
+  z-index: -2;
+  animation: lightning-border 2s linear infinite reverse;
+}
+
+/* Lightning Border Animation */
+@keyframes lightning-border {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: rotate(270deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
+/* Hover Effects */
+.lightning-neon-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 245, 255, 0.5);
+}
+
+.lightning-neon-btn:hover::before {
+  animation-duration: 0.5s;
+}
+
+.lightning-neon-btn:hover::after {
+  animation-duration: 0.5s;
+}
+
+/* Active State */
+.lightning-neon-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Glass Morphism Variant */
+.lightning-neon-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  color: white;
+}
+
+.lightning-neon-glass::before {
+  background: linear-gradient(45deg, var(--neon-blue), transparent, var(--neon-pink));
+}
+
+.lightning-neon-glass::after {
+  background: linear-gradient(45deg, transparent, var(--neon-purple), transparent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lightning-neon-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Pulse Animation for Active Buttons */
+.lightning-neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.6);
+  }
+}
