@@ -1,0 +1,13 @@
+# Medy-Web
+Medy web designed as a modern web application which includes App store , Game store , Love Calculator , AI VIDEO CHAT chatbot . It have modern loading animation , efects , backgrounds.
+
+#View this on your device as a web 
+First you need to install a Wamp server or xampp server
+After installation start all the services . 
+Then open your cmd or vs code 
+Then type e.g cd path of this folder like : cd C:Users/Desktop/Medy-Apps 
+Then hit enter 
+Then type : php artisan serve
+After this your server start successfully now go to your browser and type localhost:8000 (for wampp server ) and as like localhost:
+Here you see the web interface
+Thankyou
